@@ -1,0 +1,119 @@
+/**
+* Fancy Scroll
+*
+* @version	0.1
+* @author	Jasal Vadgama - http://blacklabelcreative.com/
+* @license	GPL v3
+**/
+
+body {
+	background: #333 url(../images/bg.png) fixed repeat;
+	color: #fff;
+	font-family: helvetica, arial, sans-serif;
+	font-size: 62.5%;
+	line-height: 1.6em;
+}
+h1 {
+	font-size: 2em;
+}
+h2 {
+	margin-bottom: 1em;
+	font-size: 2em;
+}
+p {
+	margin-bottom: 1em;
+}
+nav a {
+	color: #fff;
+	text-decoration: none;
+}
+
+#header {
+	position: fixed;
+	width: 100%;
+	background: #111;
+	border-bottom: 1px solid #666;
+	box-shadow: 0 5px 10px 5px rgba(0, 0, 0, 0.25);
+	overflow: hidden;
+	z-index: 100;
+}
+#header h1 {
+	padding: 10px 20px;
+}
+#header nav {
+	position: absolute;
+	right: 20px;
+	bottom: 10px;
+	font-size: 1.4em;
+}
+#header nav li {
+	float: left;
+	padding-left: 20px;
+}
+
+.section {
+	position: relative;
+	height: 800px;
+	background-attachment: fixed;
+	background-color: transparent;
+	background-position: 50% 0;
+	background-repeat: no-repeat;
+	border-top: 1px solid #666;
+	font-size: 1.4em;
+	overflow: hidden;
+}
+#first {
+	background-image: url(../images/section_2.jpg);
+}
+#second {
+	background-image: url(../images/section_3.jpg);
+}
+#third {
+	height: 1500px;
+	background-image: url(../images/section_1.jpg);
+}
+
+.section article {
+	position: absolute;
+	width: 450px;
+	padding: 20px 20px 10px;
+	background: rgba(0, 0, 0, 0.75);
+}
+#intro article {
+	top: 200px;
+	left: 50%;
+	margin-left: -225px;
+	background: none;
+}
+#first article,
+#third article {
+	top: 100px;
+	right: 20px;
+}
+#second article {
+	top: 100px;
+	left: 20px;
+}
+
+/* Sprites */
+.sprite {
+	position: absolute;
+	top: 500px;
+	left: -200px;
+	width: 100px;
+	height: 100px;
+	background: #ff0000;
+}
+
+/* 3d objects */
+.object3D {
+	position: relative;
+	left: 50%;
+	margin-left: -480px; /* half the width of the images */
+}
+.object3D img {
+	display: none;
+}
+.object3D img.active {
+	display: block;
+}
