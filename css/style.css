@@ -109,7 +109,7 @@ nav a {
 .object3D {
 	position: relative;
 	left: 50%;
-	margin-left: -480px; /* half the width of the images */
+	margin-left: -800px;
 }
 .object3D img {
 	display: none;
