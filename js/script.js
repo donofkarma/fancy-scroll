@@ -4,7 +4,6 @@
 * @version	0.1
 * @author	Jasal Vadgama - http://blacklabelcreative.com/
 * @require	jquery 1.7.1+
-*			jquery.scrollTo 1.4.2 - http://demos.flesler.com/jquery/scrollTo/
 * @license	GPL v3
 **/
 

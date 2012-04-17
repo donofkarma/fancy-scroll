@@ -1,15 +1,17 @@
 Parallax Scrolling Effect
 ====================
 
-Adding the knowledged gained by building one of these types of site in to something generic and reusable.
+Adding the knowledge gained by building one of these types of site in to something generic and reusable.
 
 To-do
 ---------------------
 
 - Add new background images for the sections
 - Convert JS into plugin syntax
-- Look at touch device interaction
 - Optimise JS
+  - Look at the scroll event
+  - Optimise the $.data() storage method
+- Look at touch device interaction
 - Write documentation
 
 Changelog
