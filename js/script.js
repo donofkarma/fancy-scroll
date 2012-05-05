@@ -1,7 +1,7 @@
 /**
 * Fancy Scroll - parallax effect plugin
 *
-* @version	0.1
+* @version	0.2
 * @author	Jasal Vadgama - http://blacklabelcreative.com/
 * @require	jquery 1.7.1+
 * @license	GPL v3
@@ -14,20 +14,6 @@ fancyScroll = function () {
 		$windowHeight = $window.height();
 
 	return {
-		initQuickScroll: function () {
-			// adds auto scrolling for the header links
-			var $navLinks = $('#header nav a');
-
-			$navLinks.each(function () {
-				$(this).bind('click', function (e) {
-					var target = $(this).attr('href');
-
-					e.preventDefault();
-
-					$.scrollTo($(target), 800);
-				});
-			});
-		},
 		initParallax: function () {
 			// cache data for sprites
 			$('.sprite').each(function () {
@@ -35,31 +21,28 @@ fancyScroll = function () {
 					pos = $(this).offset(),
 					// calculate the animation range
 					// number of pixels to move per pixel scrolled
-					animationRange = parseInt($(this).attr('data-end'), 10) - parseInt($(this).attr('data-start'), 10),
+					animationRange = parseInt($(this).data('end'), 10) - parseInt($(this).data('start'), 10),
 					// horizontal frame rate
 					xFrameRate = 0,
 					// total number or pixels to move horizontally
 					xDistance = pos.left;
 
 				// find the horizontal frame rate
-				if ($(this).attr('data-left')) {
+				if ($(this).data('left')) {
 					if (xDistance < 1) {
 						xDistance = xDistance * -1;
 					}
 
-					xFrameRate = (xDistance + parseInt($(this).attr('data-left'), 10)) / animationRange;
+					xFrameRate = (xDistance + parseInt($(this).data('left'), 10)) / animationRange;
 				} else {
 					xFrameRate = 0;
 				}
 
-				// set the objects data
+				// set the object data
+				// these are new ones which need to be calculated from the settings
 				$(this).data({
-					// animation range
-					start: parseInt($(this).attr('data-start'), 10),
-					end: parseInt($(this).attr('data-end'), 10),
-					// start and end positions
+					// start positions
 					leftStart: pos.left,
-					leftEnd: parseInt($(this).attr('data-left'), 10),
 					// frame rates
 					xFrameRate: xFrameRate
 				});
@@ -67,9 +50,10 @@ fancyScroll = function () {
 
 			// cache data for 3d objects
 			$('.object3D').each(function () {
+				// set the object data
+				// these are new ones which need to be calculated from the settings
 				$(this).data({
-					start: parseInt($(this).attr('data-start'), 10),
-					end: parseInt($(this).attr('data-end'), 10),
+					// no of frames in the animation
 					frames: $(this).find('img').length
 				});
 			});
@@ -79,13 +63,6 @@ fancyScroll = function () {
 				var $self = $(this),
 					offsetCoords = $self.offset(),
 					topOffset = offsetCoords.top;
-
-				// Store some variables based on where we are
-				$(this).data({
-					type: $(this).attr('data-type'),
-					offsetY: parseInt($(this).attr('data-offsetY'), 10),
-					speed: parseInt($(this).attr('data-speed'), 10)
-				});
 
 				$window.scroll(function () {
 					// check to see if section is in view
@@ -195,9 +172,6 @@ fancyScroll = function () {
 }();
 
 $(function () {
-	// start the parallax effects
-	fancyScroll.initQuickScroll();
-
 	// start the parallax effects
 	fancyScroll.initParallax();
 });

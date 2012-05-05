@@ -10,12 +10,16 @@ To-do
 - Convert JS into plugin syntax
 - Optimise JS
   - Look at the scroll event
-  - Optimise the $.data() storage method
 - Look at touch device interaction
 - Write documentation
 
 Changelog
 ---------------------
+
+### 0.2
+- Updated usage of $.data()
+- Removed element attribute lookups
+- Removed unnecessary navigation functions
 
 ### 0.1
 - Adding initial cleaned code
