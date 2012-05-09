@@ -78,8 +78,8 @@ fancyScroll = function () {
 						// see if the background needs to move
 						if ($self.data('type') === 'background') {
 							// If this element has a Y offset then add it on
-							if ($self.data('offsetY')) {
-								yPos += $self.data('offsetY');
+							if ($self.data('yoffset')) {
+								yPos += $self.data('yoffset');
 							}
 
 							// Put together our final background position

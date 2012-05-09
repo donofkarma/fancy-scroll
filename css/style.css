@@ -63,14 +63,14 @@ nav a {
 	overflow: hidden;
 }
 #first {
-	background-image: url(../images/section_2.jpg);
+	background-image: url(../images/section-1.jpg);
 }
 #second {
-	background-image: url(../images/section_3.jpg);
+	background-image: url(../images/section-2.jpg);
 }
 #third {
 	height: 1500px;
-	background-image: url(../images/section_1.jpg);
+	background-image: url(../images/section-3.jpg);
 }
 
 .section article {

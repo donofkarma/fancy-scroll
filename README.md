@@ -6,15 +6,19 @@ Adding the knowledge gained by building one of these types of site in to somethi
 To-do
 ---------------------
 
-- Add new background images for the sections
 - Convert JS into plugin syntax
 - Optimise JS
   - Look at the scroll event
 - Look at touch device interaction
+- Update copy
 - Write documentation
 
 Changelog
 ---------------------
+
+### 0.3
+- Added new background images
+- Fixed a bug with the reading of camel cased custom data attributes
 
 ### 0.2
 - Updated usage of $.data()
@@ -28,3 +32,5 @@ License
 ---------------------
 
 This work may be freely distributed under the MIT license.
+
+Photography is copyrighted by John Turner - http://stickmanphotographic.com/
