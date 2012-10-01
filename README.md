@@ -7,8 +7,6 @@ To-do
 ---------------------
 
 - Convert JS into plugin syntax
-- Look at touch device interaction
-- Update copy
 - Write documentation
 
 Changelog
