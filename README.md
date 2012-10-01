@@ -7,14 +7,15 @@ To-do
 ---------------------
 
 - Convert JS into plugin syntax
-- Optimise JS
-  - Look at the scroll event
 - Look at touch device interaction
 - Update copy
 - Write documentation
 
 Changelog
 ---------------------
+
+### 0.4
+- Added new scroll listener and timer functions to address window scroll performance problems
 
 ### 0.3
 - Added new background images

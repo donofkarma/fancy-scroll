@@ -1,22 +1,27 @@
 /**
 * Fancy Scroll - parallax effect plugin
 *
-* @version	0.2
+* @version	0.4
 * @author	Jasal Vadgama - http://blacklabelcreative.com/
 * @require	jquery 1.7.1+
-* @license	GPL v3
+* @license	MIT
 **/
 
 var fancyScroll = fancyScroll || {};
 
 fancyScroll = function () {
+	// PRIVATE VARIABLES
 	var $window = $(window),
-		$windowHeight = $window.height();
+		$windowHeight = $window.height(),
+		didScroll = false;
 
+	// PRIVATE FUNCTIONS
+
+	// PUBLIC FUNCTIONS
 	return {
-		initParallax: function () {
+		initParallax: function() {
 			// cache data for sprites
-			$('.sprite').each(function () {
+			$('.sprite').each(function() {
 				var // position of the element
 					pos = $(this).offset(),
 					// calculate the animation range
@@ -49,7 +54,7 @@ fancyScroll = function () {
 			});
 
 			// cache data for 3d objects
-			$('.object3D').each(function () {
+			$('.object3D').each(function() {
 				// set the object data
 				// these are new ones which need to be calculated from the settings
 				$(this).data({
@@ -58,15 +63,24 @@ fancyScroll = function () {
 				});
 			});
 
-			// For each element that has a data-type of background
-			$('.section').each(function () {
-				var $self = $(this),
-					offsetCoords = $self.offset(),
-					topOffset = offsetCoords.top;
+			// set a timer to check for a fired scroll - performance issue
+			// see http://ejohn.org/blog/learning-from-twitter/ for more info
+			setInterval(function() {
+				// make sure there's a scroll to check against
+				if (!didScroll) {
+					return;
+				}
 
-				$window.scroll(function () {
-					// check to see if section is in view
-					if (($window.scrollTop() + $windowHeight) > (topOffset) && ((topOffset + $self.height()) > $window.scrollTop())) {
+				// reset the scroll boolean
+				didScroll = false;
+
+				// For each element that has a data-type of background
+				$('.section').each(function() {
+					var $self = $(this),
+						offsetCoords = $self.offset(),
+						topOffset = offsetCoords.top;
+
+					if (($window.scrollTop() + $windowHeight) > topOffset && (topOffset + $self.height()) > $window.scrollTop()) {
 						// Scroll the background at var speed
 						// the yPos is a negative value because we're scrolling it UP!
 						var yPos = -($window.scrollTop() / $self.data('speed')),
@@ -166,12 +180,17 @@ fancyScroll = function () {
 						});
 					}
 				});
+			}, 50);
+
+			// add the scroll event listener
+			$window.scroll(function() {
+				didScroll = true;
 			});
 		}
 	};
 }();
 
-$(function () {
+$(function() {
 	// start the parallax effects
 	fancyScroll.initParallax();
 });
