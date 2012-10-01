@@ -6,14 +6,18 @@ Adding the knowledge gained by building one of these types of site in to somethi
 To-do
 ---------------------
 
-- Convert JS into plugin syntax
+- Add ability to destroy plugin
 - Write documentation
 
 Changelog
 ---------------------
 
+### 0.5
+- Updated JS to plugin syntax (jQuery)
+
 ### 0.4
 - Added new scroll listener and timer functions to address window scroll performance problems
+- Updated section copy
 
 ### 0.3
 - Added new background images
